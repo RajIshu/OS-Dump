@@ -1,0 +1,4 @@
+nasm -f bin -o boot.bin boot.asm # assembling the boot file. nasm is the assembler. -f specify the output file we want to produce which is binary file. -o specify the name of the output file.
+dd if=boot.bin of=boot.img bs=512 count=1 conv=notrunc  # writing binary file into boot image file to make it bootable.
+# if - input file; of - output file; bs - block size; count means how many blocks we want to write; 
+# The notrunc conversion option means do not truncate the output file — that is, if the output file already exists, just replace the specified bytes and leave the rest of the output file alone.
